@@ -14,6 +14,7 @@ AutoEx is an open-source utility designed to monitor a specified directory for c
 ### Prerequisites
 
 - Golang
+- Docker (for container-based deployment)
 
 ### Installation
 
@@ -26,6 +27,33 @@ AutoEx is an open-source utility designed to monitor a specified directory for c
    cd autoex
    go build
    ```
+
+### Docker Setup
+
+#### Building the Docker Container
+
+To containerize AutoEx, build the Docker image using:
+
+```bash
+docker build -t autoex .
+```
+
+This will compile the AutoEx application within a Docker container, ensuring that it runs in an isolated and consistent environment.
+
+#### Running AutoEx in a Docker Container
+
+After building the image, run AutoEx using:
+
+```bash
+docker run -d \
+  -v /path/to/your/data:/data \
+  -e AUTOEX_DIR="/data" \
+  -e AUTOEX_PW_LIST="password1|password2|password3" \
+  -e AUTOEX_DEL_COMPLETE="false" \
+  --name autoex_container autoex
+```
+
+This command sets up AutoEx to monitor the `/data` directory inside the container, which maps to `/path/to/your/data` on your host machine. It will attempt to extract any new archives using the provided password list.
 
 ## Configuration
 
