@@ -53,7 +53,7 @@ To start using AutoEx, you need to specify the directory to monitor and the path
 
 Or (not be password protected)
 ```bash
-  AUTOEX_DIR="/home/user/downloads" AUTOEX_PW_LIST="|" AUTOEX_DEL_COMPLETE="false" ./autoex
+  AUTOEX_DIR="/home/user/downloads" AUTOEX_PW_LIST="" AUTOEX_DEL_COMPLETE="false" ./autoex
 ```
 
 ## Contributing

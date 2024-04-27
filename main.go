@@ -33,10 +33,10 @@ func loadConf() {
 	}
 
 	pwList := os.Getenv("AUTOEX_PW_LIST")
-	if pwList == "" {
-		log.Fatal("AUTOEX_PW_LIST environment variable is not set")
-	}
 	passwords := strings.Split(pwList, "|")
+	if len(passwords) == 0 {
+		passwords = []string{""}
+	}
 
 	del := os.Getenv("AUTOEX_DEL_COMPLETE")
 
